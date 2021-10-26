@@ -1,0 +1,19 @@
+<div>
+  <ul class="list-unstyled">
+    <div class="row">
+      <div class="col-md-8">
+        <li>From: {{ email.from }}</li>
+        <li>To: {{ email.to }}</li>
+      </div>
+      <div class="col-md-4">
+        <app-email-reply></app-email-reply>
+      </div>
+    </div>
+    <li>
+      Subject: <span class="text-success fw-bold">{{ email.subject }}</span>
+    </li>
+  </ul>
+  <hr />
+
+  <p [innerHTML]="email.html"></p>
+</div>

@@ -1,0 +1,25 @@
+<div class="modal show fade" style="display: block" (click)="dismissModal()">
+  <div
+    class="modal-dialog modal-dialog-centered"
+    (click)="$event.stopPropagation()"
+  >
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">
+          <ng-content select="[modalHeader]"></ng-content>
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          (click)="dismissModal()"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <ng-content></ng-content>
+      </div>
+      <div class="modal-footer">
+        <ng-content select="[modalFooter]"></ng-content>
+      </div>
+    </div>
+  </div>
+</div>

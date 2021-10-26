@@ -1,0 +1,44 @@
+<label class="form-label">
+  {{ label }}
+</label>
+<input
+  class="form-control"
+  [formControl]="control"
+  [type]="type"
+  [ngClass]="{ 'is-invalid': showErrors() }"
+  *ngIf="controlType === 'input'"
+/>
+<textarea
+  class="form-control"
+  [formControl]="control"
+  [ngClass]="{ 'is-invalid': showErrors() }"
+  rows="8"
+  *ngIf="controlType === 'textarea'"
+></textarea>
+<ng-container *ngIf="showErrors()">
+  <div *ngIf="control.errors.required" class="invalid-feedback">
+    This field is required
+  </div>
+  <div *ngIf="control.errors.minlength" class="invalid-feedback">
+    Sorry, you have to enter at least
+    {{ control.errors.minlength.requiredLength }}, but you entered
+    {{ control.errors.minlength.actualLength }}
+  </div>
+  <div *ngIf="control.errors.maxlength" class="invalid-feedback">
+    Sorry, you have to enter at most
+    {{ control.errors.maxlength.requiredLength }}, but you entered
+    {{ control.errors.maxlength.actualLength }}
+  </div>
+  <div *ngIf="control.errors.pattern" class="invalid-feedback">
+    Invalid format-You can only use letters and numbers
+  </div>
+  <div *ngIf="control.errors.nonUniqueUsername" class="invalid-feedback">
+    Username is already taken
+  </div>
+  <div *ngIf="control.errors.noInternet" class="invalid-feedback">
+    No internet connection
+  </div>
+  <div *ngIf="control.errors.email" class="invalid-feedback">
+    Enter a valid email
+  </div>
+</ng-container>

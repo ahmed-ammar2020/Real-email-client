@@ -1,0 +1,33 @@
+<form action="" [formGroup]="emailForm" (ngSubmit)="submitForm()">
+  <app-input
+    [control]="emailForm.controls.to"
+    label="To"
+    type="text"
+  ></app-input>
+  <div class="mt-3"></div>
+  <app-input
+    [control]="emailForm.controls.from"
+    label="From"
+    type="text"
+  ></app-input>
+  <div class="mt-3"></div>
+  <app-input
+    [control]="emailForm.controls.subject"
+    label="Subject"
+    type="text"
+  ></app-input>
+  <div class="mt-3"></div>
+  <app-input
+    [control]="emailForm.controls.text"
+    label="Your message"
+    type="text"
+    controlType="textarea"
+  ></app-input>
+  <button
+    [disabled]="emailForm.invalid"
+    type="submit"
+    class="btn btn-primary mt-3"
+  >
+    Send
+  </button>
+</form>

@@ -1,0 +1,15 @@
+<button class="btn btn-outline-primary" (click)="dismissModal()">
+  Compose
+</button>
+<app-modal (dismiss)="dismissModal()" *ngIf="modalOpen">
+  <div modalHeader>Send an email</div>
+  <app-email-form
+    (submitEmail)="submitEmail($event)"
+    [email]="email"
+  ></app-email-form>
+  <div modalFooter>
+    <button class="btn btn-outline-secondary" (click)="dismissModal()">
+      Close
+    </button>
+  </div>
+</app-modal>
